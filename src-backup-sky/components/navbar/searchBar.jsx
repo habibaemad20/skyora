@@ -6,7 +6,7 @@ import { cityLabel } from "../../utils/cities";
 export default function SearchBar({ onSelect }) {
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState(0); // الصف المظلل بالكيبورد
+  const [active, setActive] = useState(0); 
   const wrapRef = useRef(null);
   const inputRef = useRef(null);
   const listId = useId();
@@ -16,11 +16,9 @@ export default function SearchBar({ onSelect }) {
   const showResults = showPanel && status === "results";
 
   useEffect(() => {
-    // 1) كليك برا الصندوق: نقفل القائمة
     const onMouseDown = (e) => {
       if (!wrapRef.current?.contains(e.target)) setOpen(false);
     };
-    // 2) زرار "/" يعمل Focus على البحث (زي التصميم)
     const onKeyDown = (e) => {
       const tag = document.activeElement?.tagName;
       if (e.key === "/" && tag !== "INPUT" && tag !== "TEXTAREA") {
@@ -94,7 +92,7 @@ export default function SearchBar({ onSelect }) {
             dark:focus:bg-white/15"
         />
 
-        {/* يمين الصندوق: spinner أو زرار مسح أو اختصار "/" */}
+        {/*  */}
         <span className="absolute end-3 top-1/2 -translate-y-1/2">
           {status === "loading" ? (
             <Loader2 size={16} aria-hidden="true" className="animate-spin text-accent" />

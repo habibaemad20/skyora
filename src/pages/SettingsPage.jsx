@@ -44,7 +44,6 @@ function Row({ title, desc, children }) {
 export default function SettingsPage() {
   const { settings, update, reset } = useSettings();
   const { preference, setPreference } = useTheme();
-  // الـ Layout بيبعتلنا الدوال دي عشان نقدر نمسح البيانات المحفوظة
   const { setFavorites, setRecent } = useOutletContext();
   const [notice, setNotice] = useState("");
 
@@ -70,7 +69,6 @@ export default function SettingsPage() {
     setNotice("Settings reset to defaults.");
   };
 
-  // مثال حي بيوضّح أثر الإعدادات
   const preview = [
     ["Temperature", `${formatTemp(28, settings.units)}${tempUnit(settings.units)}`],
     ["Wind", `${formatWind(12, settings.windUnit)} ${windUnit(settings.windUnit)}`],

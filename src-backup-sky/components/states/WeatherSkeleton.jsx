@@ -1,6 +1,5 @@
 import GlassCard from "../ui/GlassCard";
 
-// مستطيل رمادي بينبض
 function Bone({ className = "" }) {
   return <div className={`animate-pulse rounded-xl bg-slate-900/10 dark:bg-white/10 ${className}`} />;
 }

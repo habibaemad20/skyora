@@ -4,7 +4,6 @@ export const cityKey = (c) => `${c.latitude},${c.longitude}`;
 // "Alexandria Governorate, Egypt"
 export const cityLabel = (c) => [c.admin1, c.country].filter(Boolean).join(", ");
 
-// بنحتفظ بالحقول المهمة بس (عشان نتفادى تخزين بيانات زيادة من نتايج البحث)
 export const pickCity = (c) => ({
   name: c.name,
   country: c.country,

@@ -1,6 +1,5 @@
 import GlassCard from "../ui/GlassCard";
 
-// مستطيل رمادي بينبض
 function Bone({ className = "" }) {
   return <div className={`animate-pulse rounded-xl bg-slate-900/10 dark:bg-white/10 ${className}`} />;
 }
@@ -24,7 +23,7 @@ export default function WeatherSkeleton() {
           <Bone className="h-16 w-full rounded-2xl" />
         </GlassCard>
 
-        {/* الـ 4 كروت */}
+        {/* */}
         <div className="grid auto-rows-fr grid-cols-2 gap-4 lg:gap-6">
           {[0, 1, 2, 3].map((i) => (
             <GlassCard key={i} className="space-y-4 p-5">

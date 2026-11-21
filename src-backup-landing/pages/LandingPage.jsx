@@ -77,7 +77,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* التجربة الحية */}
+        {/* live*/}
         <section id="try" className="mx-auto max-w-5xl scroll-mt-24 px-4 py-10">
           <LiveDemo />
         </section>
@@ -102,7 +102,7 @@ export default function LandingPage() {
           </ul>
         </section>
 
-        {/* الدعوة للتجربة */}
+        {/* */}
         <section className="mx-auto max-w-4xl px-4 pb-20">
           <div className="rounded-3xl bg-linear-to-br from-brand to-brand-2 p-10 text-center text-white shadow-2xl shadow-brand/40 sm:p-14">
             <h2 className="font-display text-3xl font-extrabold sm:text-4xl">Ready to check the sky?</h2>

@@ -18,7 +18,6 @@ import { formatTemp, tempUnit } from "../utils/formatters";
 const MAX_RECENT = 5;
 
 export default function AppLayout() {
-  // وحدة الحرارة بقت جاية من الإعدادات (نفس المكان اللي صفحة Settings بتغيّره)
   const { settings, update } = useSettings();
   const units = settings.units;
   const setUnits = (u) => update({ units: u });
@@ -34,7 +33,7 @@ export default function AppLayout() {
   const [city, setCity] = useState(() => recent[0] ?? null);
   const { data: weather, loading, error, savedAt, retry } = useWeather(city);
   const online = useOnlineStatus();
-  const sky = useSky(weather); // السماء بتتبع الطقس الحقيقي ووقت المدينة
+  const sky = useSky(weather); 
 
   const isFavorite = city ? favorites.some((f) => cityKey(f) === cityKey(city)) : false;
 
@@ -45,7 +44,6 @@ export default function AppLayout() {
       const old = prev.find((c) => cityKey(c) === cityKey(next));
       return [{ ...next, temp: old?.temp }, ...prev.filter((c) => cityKey(c) !== cityKey(next))].slice(0, MAX_RECENT);
     });
-    // لو إحنا في صفحة Settings نرجع للداشبورد عشان نشوف الطقس
     if (pathname !== "/app") navigate("/app");
   };
 
@@ -63,7 +61,6 @@ export default function AppLayout() {
 
   const location = useGeolocation(selectCity);
 
-  // نحدّث الدرجة المعروضة على زرار المدينة في Recent
   useEffect(() => {
     if (!weather || !city) return;
     const temp = weather.current.temperature_2m;
@@ -72,7 +69,7 @@ export default function AppLayout() {
     );
   }, [weather, city, setRecent]);
 
-  // عنوان التاب
+ 
   useEffect(() => {
     document.title =
       weather && city
@@ -95,7 +92,7 @@ export default function AppLayout() {
       />
 
       <main className="mx-auto max-w-7xl px-4 pb-28 pt-4 md:pb-10">
-        {/* key={pathname} بيعيد تشغيل أنيميشن الدخول لما الصفحة تتغير */}
+        {}
         <div key={pathname} className="page-in space-y-6">
           <Outlet
             context={{

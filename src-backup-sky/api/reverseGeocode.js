@@ -1,4 +1,3 @@
-// إحداثيات ← اسم مدينة. لو الخدمة فشلت بنرجّع "My location" عشان التطبيق يكمل
 export async function reverseGeocode({ latitude, longitude }) {
   const fallback = {
     name: "My location",

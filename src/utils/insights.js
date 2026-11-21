@@ -1,6 +1,5 @@
 import { Umbrella, Shirt, Sun } from "lucide-react";
 
-// بتقرا الداتا وتطلّع جملة نصيحة واحدة
 export function getInsight(daily) {
   const rain = daily.precipitation_probability_max[0];
   const low = daily.temperature_2m_min[0];

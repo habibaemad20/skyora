@@ -1,7 +1,4 @@
 import { HAZE_AMOUNT, rgb, skyAt, starOpacity } from "../../utils/sky";
-
-// مواقع العناصر ثابتة (بنحسبها بمعادلات بدل Math.random عشان الشكل ما يتغيرش مع كل render)
-// inClear / inPartly: ظهور كل سحابة لما الجو صافي أو غائم جزئيًا
 const CLOUDS = [
   { top: "10%", scale: "1.6", dur: 90, delay: -30, x: "12%", inClear: "opacity-80", inPartly: "opacity-100" },
   { top: "22%", scale: "2.4", dur: 120, delay: -70, x: "55%", inClear: "opacity-0", inPartly: "opacity-90" },
@@ -26,8 +23,6 @@ const STARS = Array.from({ length: 40 }, (_, i) => ({
   size: 1 + (i % 3),
   delay: -((i * 13) % 30) / 10,
 }));
-
-// الكلاسات لازم تفضل مكتوبة كاملة عشان Tailwind يشوفها
 const CLOUD_COLOR = {
   clear: "bg-white", partly: "bg-white", cloudy: "bg-slate-300", fog: "bg-slate-200",
   snow: "bg-slate-100", rain: "bg-slate-400", storm: "bg-slate-600",
@@ -37,20 +32,16 @@ const SUN_OPACITY = { clear: 1, partly: 0.9, cloudy: 0.25, fog: 0.2, snow: 0.55,
 const cloudVisibility = (weather, c) =>
   weather === "clear" ? c.inClear : weather === "partly" ? c.inPartly : "opacity-100";
 
-// عدد الجزيئات حسب الكثافة (الداشبورد بياخد أقل عشان الأداء)
 const take = (list, density) => list.slice(0, Math.round(list.length * density));
 
-// مشهد السماء: خلفية ثابتة ورا الصفحة كلها
 export default function SkyScene({ weather, hour, dark, density = 1, calm = false }) {
   const [top, mid, bottom] = skyAt(hour).map(rgb);
 
-  // الشمس أو القمر بيتحركوا على قوس
   const isSun = hour >= 6 && hour <= 18;
   const p = isSun ? (hour - 6) / 12 : ((hour < 6 ? hour + 24 : hour) - 18) / 12;
   const x = 8 + 84 * p;
   const y = 62 - 50 * Math.sin(Math.PI * p);
 
-  // طبقة فوق السماء بتزوّد التباين. في الداشبورد أقوى لأن المحتوى كتير
   const overlay = calm
     ? dark ? "bg-black/50" : "bg-white/50"
     : dark ? "bg-black/25" : "bg-white/25";
@@ -91,10 +82,10 @@ export default function SkyScene({ weather, hour, dark, density = 1, calm = fals
         ))}
       </div>
 
-      {/* تغميق حسب الطقس */}
+      {/* عشان تغير اللون حسب الطقس*/}
       <div className="absolute inset-0 bg-slate-800 transition-opacity duration-700" style={{ opacity: HAZE_AMOUNT[weather] }} />
 
-      {/* مطر / عاصفة */}
+      {/* مطرة */}
       {(weather === "rain" || weather === "storm") && (
         <div className="fade-in absolute inset-0">
           {take(DROPS, density).map((d, i) => (

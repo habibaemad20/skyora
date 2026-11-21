@@ -62,7 +62,7 @@ export default function SunArc({ weather }) {
         />
         {/* القوس الكامل */}
         <path d={ARC} fill="none" strokeWidth="3" strokeLinecap="round" className="stroke-slate-200 dark:stroke-white/10" />
-        {/* الجزء اللي الشمس قطعته (pathLength=1 بيخلينا نتعامل معاه كنسبة) */}
+        {}
         <path
           d={ARC} fill="none" strokeWidth="3" strokeLinecap="round"
           pathLength="1" strokeDasharray={`${t} 1`}

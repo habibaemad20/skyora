@@ -3,7 +3,6 @@ import {
   CloudDrizzle, CloudRain, CloudSnow, CloudLightning,
 } from "lucide-react";
 
-// كل نوع طقس له أيقونة + لون للنهار وللّيل (الكلاسات مكتوبة كاملة عشان Tailwind يشوفها)
 const same = (Icon, color) => ({ day: { Icon, color }, night: { Icon, color } });
 
 const KINDS = {
@@ -23,7 +22,6 @@ const KINDS = {
   storm: same(CloudLightning, "text-violet-500 dark:text-violet-400"),
 };
 
-// WMO code → اسم + نوع
 const CODES = {
   0: ["Clear sky", "clear"], 1: ["Mostly clear", "partly"], 2: ["Partly cloudy", "partly"],
   3: ["Overcast", "cloud"], 45: ["Fog", "fog"], 48: ["Rime fog", "fog"],
@@ -43,8 +41,6 @@ export function getWeather(code, isDay = 1) {
   return { label, Icon, color, kind };
 }
 
-// خلفيات الصفحة: كل نوع طقس له ألوان للايت (الأول) وللدارك (dark:)
-// لازم تفضل مكتوبة كاملة، ماتبنيهاش بـ template string
 const BACKGROUNDS = {
   clear: "from-sky-200 via-blue-100 to-orange-50 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950",
   partly: "from-sky-200 via-blue-100 to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950",
@@ -61,11 +57,9 @@ const NIGHT =
 
 export function getBackground(code, isDay = 1) {
   const [, kind] = CODES[code] ?? ["", "cloud"];
-  // الليل مع سماء صافية أو غايمة جزئيًا: خلفية ليلية
   if (!isDay && (kind === "clear" || kind === "partly")) return NIGHT;
   return BACKGROUNDS[kind];
 }
-// بترجّع شخصية الألوان المناسبة للطقس
 export function getMood(code, isDay = 1) {
   const { kind } = getWeather(code, isDay);
   if (kind === "clear" || kind === "partly") return isDay ? "sunny" : "night";

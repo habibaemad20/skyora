@@ -19,7 +19,6 @@ const primary =
   "inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3.5 font-semibold text-white shadow-lg shadow-brand/30 transition hover:-translate-y-0.5";
 const glass =
   "rounded-3xl border border-white/40 bg-white/60 shadow-xl shadow-slate-900/10 backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/45";
-// الساعة الحالية على جهازك، مقرّبة لأقرب نص ساعة (السماء بتبدأ على وقتك الحقيقي)
 const currentHour = () => {
   const d = new Date();
   return Math.round((d.getHours() + d.getMinutes() / 60) * 2) / 2;
@@ -34,8 +33,6 @@ export default function LandingPage() {
     document.title = "SKYORA · Know the sky before you step out";
   }, []);
 
-  // في الصفحة دي السماء هي اللي بتحدد لايت/دارك. ولما نسيب الصفحة بنرجّع ثيم المستخدم
-  // الـ Landing بتطلب من الـ ThemeProvider يفرض لايت/دارك حسب السماء، ولما نسيب الصفحة بنشيل الفرض
   useLayoutEffect(() => {
     setOverride(dark ? "dark" : "light");
     return () => setOverride(null);
@@ -60,7 +57,7 @@ export default function LandingPage() {
       <main>
         <section className="stagger mx-auto max-w-4xl px-4 pb-10 pt-16 text-center sm:pt-24">
           <p className="mx-auto w-fit rounded-full border border-slate-900/15 bg-white/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest backdrop-blur dark:border-white/20 dark:bg-white/10">
-            Live forecasts · Powered by Open-Meteo
+            Live forecasts ·
           </p>
 
           <h1 className="mt-6 font-display text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-7xl">
@@ -127,8 +124,8 @@ export default function LandingPage() {
       <footer className="mx-auto max-w-6xl px-4">
         <div className={`${glass} flex flex-wrap items-center justify-between gap-2 px-6 py-4 text-sm text-slate-800 dark:text-slate-300`}>
           <p>
-            <span className="font-bold">SKYORA</span> · Weather data by{" "}
-            <a href="https://open-meteo.com/" target="_blank" rel="noreferrer" className="underline">Open-Meteo</a>
+            <span className="font-bold">SKYORA</span> ·maded by{" "}
+            <a href="https://open-meteo.com/" target="_blank" rel="noreferrer" className="underline">Habiba Emad</a>
           </p>
           <p className="italic">Know the sky before you step out.</p>
         </div>

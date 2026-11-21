@@ -1,6 +1,4 @@
 import GlassCard from "../ui/GlassCard";
-
-// كارت إحصائية عام: أيقونة + عنوان + بادج + أي محتوى جواه
 export default function StatCard({ icon: Icon, label, badge, children }) {
   return (
     <GlassCard className="flex flex-col p-5">

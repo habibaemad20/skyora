@@ -7,7 +7,6 @@ import {
   getGreeting, formatVisibility,
 } from "../../utils/formatters";
 
-// عنصر صغير في صندوق الملخص
 function SummaryItem({ label, value }) {
   return (
     <div>
@@ -24,7 +23,7 @@ export default function HeroCard({ city, weather, units, isFavorite, onToggleFav
 
   return (
     <GlassCard className="flex h-full flex-col p-6 sm:p-8">
-      {/* الصف الأول: المدينة + المفضلة */}
+      {/* */}
       <div className="flex items-start justify-between gap-4">
         <div>
           <div className="flex flex-wrap items-center gap-2">
@@ -64,7 +63,7 @@ export default function HeroCard({ city, weather, units, isFavorite, onToggleFav
         {getGreeting(current.time)}, {city.name}
       </p>
 
-      {/* الدرجة الكبيرة + الأيقونة */}
+      {/* */}
       <div className="mt-2 flex items-center justify-between gap-4">
         <div className="flex items-start">
           <span className="font-display text-8xl font-semibold leading-none tracking-tight sm:text-9xl">
@@ -88,7 +87,7 @@ export default function HeroCard({ city, weather, units, isFavorite, onToggleFav
         </span>
       </p>
 
-      {/* ملخص اليوم */}
+      {/* */}
       <dl className="mt-auto grid grid-cols-2 gap-4 rounded-2xl bg-slate-900/5 p-4 text-sm sm:grid-cols-4 dark:bg-white/5">
         <SummaryItem
           label="High / Low"

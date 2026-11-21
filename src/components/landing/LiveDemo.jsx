@@ -32,7 +32,7 @@ export default function LiveDemo() {
   const info = weather ? getWeather(weather.current.weather_code, weather.current.is_day) : null;
 
   const openApp = () => {
-    pushRecent(city); // نحفظ المدينة الأول، وبعدين نفتح التطبيق عليها
+    pushRecent(city);
     navigate("/app");
   };
 

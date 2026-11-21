@@ -24,21 +24,18 @@
     scroll-behavior: auto !important;
   }
 }
-/* ===== ألوان التطبيق (Design Tokens) ===== */
 @theme inline {
   --color-brand: var(--brand);
   --color-brand-2: var(--brand-2);
   --color-accent: var(--accent);
 }
 
-/* بنقول للمتصفح إن دي "ألوان"، فيقدر يمزجها وهي بتتغير (ده سر الأنيميشن) */
 @property --brand   { syntax: "<color>"; inherits: true; initial-value: #ea580c; }
 @property --brand-2 { syntax: "<color>"; inherits: true; initial-value: #db2777; }
 @property --sky-1   { syntax: "<color>"; inherits: true; initial-value: #4facfe; }
 @property --sky-2   { syntax: "<color>"; inherits: true; initial-value: #ffd89b; }
 @property --sky-3   { syntax: "<color>"; inherits: true; initial-value: #ff9a8b; }
 
-/* أي تغيير في الألوان دي ياخد 0.9 ثانية */
 html {
   transition:
     --brand 0.9s ease, --brand-2 0.9s ease,
@@ -60,15 +57,12 @@ html {
 [data-mood="stormy"] { --brand: #9333ea; --brand-2: #e11d48; --sky-1: #7c3aed; --sky-2: #ec4899; --sky-3: #fb923c; }
 [data-mood="snowy"]  { --brand: #0891b2; --brand-2: #2563eb; --sky-1: #22d3ee; --sky-2: #93c5fd; --sky-3: #e0f2fe; }
 
-/* في الدارك اللون الأساسي بيتفتح شوية عشان يبان */
 .dark { --accent: color-mix(in oklab, var(--brand) 55%, white); }
 
-/* طبقة اللايت */
 .sky-bg {
   background: linear-gradient(160deg, var(--sky-1), var(--sky-2) 55%, var(--sky-3));
 }
 
-/* طبقة الدارك فوقها: بتظهر بالـ opacity فيحصل crossfade ناعم */
 .sky-bg::after {
   content: "";
   position: absolute;

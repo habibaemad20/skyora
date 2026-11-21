@@ -1,5 +1,3 @@
-// ملحوظة: الـ API بيرجع الوقت كنص بتوقيت المدينة نفسها ("2026-11-15T10:42")
-// فبنقصه بإيدينا بدل new Date() عشان ما يتحولش لتوقيت جهازك بالغلط.
 
 const toF = (c) => (c * 9) / 5 + 32;
 
@@ -39,7 +37,6 @@ export function getGreeting(iso) {
 const COMPASS = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
 export const degToCompass = (deg) => COMPASS[Math.round(deg / 22.5) % 16];
 
-// أوصاف للكروت
 export const humidityLabel = (h) => (h < 30 ? "Dry" : h < 60 ? "Comfortable" : "Humid");
 export const windLabel = (kmh) => (kmh < 12 ? "Calm" : kmh < 30 ? "Breeze" : "Strong");
 export const uvLabel = (uv) =>

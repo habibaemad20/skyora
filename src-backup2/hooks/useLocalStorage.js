@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-// زي useState بالظبط، بس القيمة بتتحفظ في المتصفح وترجع بعد الـ Refresh
 export function useLocalStorage(key, initialValue) {
   const [value, setValue] = useState(() => {
     try {

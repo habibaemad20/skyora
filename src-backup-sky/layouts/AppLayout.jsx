@@ -50,7 +50,6 @@ export default function AppLayout() {
 
   const location = useGeolocation(selectCity);
 
-  // نحدّث الدرجة المعروضة على زرار المدينة في Recent
   useEffect(() => {
     if (!weather || !city) return;
     const temp = weather.current.temperature_2m;
@@ -59,7 +58,6 @@ export default function AppLayout() {
     );
   }, [weather, city, setRecent]);
 
-  // الـ mood (شخصية الألوان) بيتكتب على <html> لما الطقس يوصل بس
   useEffect(() => {
     if (weather) {
       document.documentElement.dataset.mood = getMood(
@@ -69,7 +67,6 @@ export default function AppLayout() {
     }
   }, [weather]);
 
-  // عنوان التاب
   useEffect(() => {
     document.title =
       weather && city
@@ -92,7 +89,7 @@ export default function AppLayout() {
       />
 
       <main className="mx-auto max-w-7xl space-y-6 px-4 pb-28 pt-4 md:pb-10">
-        {/* الصفحة الحالية (الداشبورد دلوقتي) بتظهر هنا، وبنبعتلها البيانات */}
+        {/**/}
         <Outlet
           context={{
             city, weather, loading, error, savedAt, retry, online,

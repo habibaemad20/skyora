@@ -7,7 +7,7 @@ export function useLocalStorage(key, initialValue) {
       const saved = localStorage.getItem(key);
       return saved ? JSON.parse(saved) : initialValue;
     } catch {
-      return initialValue; // لو البيانات المحفوظة بايظة
+      return initialValue; 
     }
   });
 

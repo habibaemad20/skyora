@@ -8,4 +8,4 @@ createRoot(document.getElementById("root")).render(
   <StrictMode> <ThemeProvider> <App /></ThemeProvider></StrictMode>
 );
 import { searchCities } from "./api/geocoding";
-window.searchCities = searchCities; // مؤقت للتجربة، هنشيله بعدين
+window.searchCities = searchCities; // مؤقت ، هشيله بعدين

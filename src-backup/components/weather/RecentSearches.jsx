@@ -3,7 +3,7 @@ import { formatTemp } from "../../utils/formatters";
 import { cityKey } from "../../utils/cities";
 
 export default function RecentSearches({ cities, activeKey, units, onSelect }) {
-  if (cities.length === 0) return null; // مفيش بحث قبل كده: ما نعرضش حاجة
+  if (cities.length === 0) return null; 
 
   return (
     <div className="flex items-center gap-3">

@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-
-// بيلف أي عنصر ويخليه يطلع بنعومة أول ما يظهر على الشاشة (مرة واحدة)
 export default function Reveal({ children, delay = 0, className = "" }) {
   const ref = useRef(null);
   const [shown, setShown] = useState(false);

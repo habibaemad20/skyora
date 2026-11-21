@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCurrentSummary } from "../api/currentWeather";
 import { cityKey } from "../utils/cities";
-
-// بيجيب طقس كل المدن المفضلة، بس لما الـ Drawer يتفتح (enabled)
 export function useFavoritesWeather(favorites, enabled) {
   const [data, setData] = useState({});
 

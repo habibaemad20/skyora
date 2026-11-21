@@ -6,8 +6,6 @@ const SettingsContext = createContext();
 
 export function SettingsProvider({ children }) {
   const [stored, setStored] = useLocalStorage("skyora-settings", DEFAULTS);
-
-  // لو أضفنا إعداد جديد بعدين، الإعدادات القديمة المحفوظة ما تتكسرش
   const settings = { ...DEFAULTS, ...stored };
   const update = (patch) => setStored((prev) => ({ ...DEFAULTS, ...prev, ...patch }));
   const reset = () => setStored(DEFAULTS);

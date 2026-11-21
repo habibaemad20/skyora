@@ -11,12 +11,9 @@ export default function FavoritesDrawer({
   const closeRef = useRef(null);
   const weather = useFavoritesWeather(favorites, open);
 const { settings } = useSettings();
-  // لما يتفتح: Focus على زرار الإغلاق (للكيبورد وقارئات الشاشة)
   useEffect(() => {
     if (open) closeRef.current?.focus();
   }, [open]);
-
-  // Esc يقفله
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => e.key === "Escape" && onClose();
@@ -26,7 +23,7 @@ const { settings } = useSettings();
 
   return (
     <>
-      {/* الخلفية المعتمة: كليك عليها يقفل */}
+      {}
       <div
         onClick={onClose}
         aria-hidden="true"
@@ -121,7 +118,7 @@ const { settings } = useSettings();
                   )}
                 </button>
 
-                {/* زرار الحذف برا الزرار الكبير (مينفعش زرار جوه زرار) */}
+                {}
                 <button
                   onClick={() => onRemove(f)}
                   aria-label={`Remove ${f.name} from favorites`}

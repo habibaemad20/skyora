@@ -1,6 +1,5 @@
 import { Loader2, CircleCheck, TriangleAlert } from "lucide-react";
 
-// رسالة صغيرة تحت الشاشة حسب حالة تحديد الموقع
 export default function Toast({ status, name }) {
   if (status === "idle") return null;
 

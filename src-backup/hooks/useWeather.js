@@ -20,8 +20,6 @@ function writeCache(city, data) {
   }
 }
 
-// بياخد المدينة ويرجّع { data, loading, error, savedAt, retry }
-// savedAt: لو موجود يبقى الطقس المعروض محفوظ قديم (مش جديد)
 export function useWeather(city) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(Boolean(city));
@@ -49,7 +47,6 @@ export function useWeather(city) {
       })
       .catch((err) => {
         if (err.name === "AbortError") return;
-        // فشل: لو عندنا نسخة محفوظة نعرضها، وإلا نعرض الخطأ
         const cached = readCache(city);
         if (cached?.data) {
           setData(cached.data);

@@ -11,7 +11,6 @@ export default function FavoritesDrawer({
   const closeRef = useRef(null);
   const weather = useFavoritesWeather(favorites, open);
 
-  // لما يتفتح: Focus على زرار الإغلاق (للكيبورد وقارئات الشاشة)
   useEffect(() => {
     if (open) closeRef.current?.focus();
   }, [open]);
@@ -26,7 +25,7 @@ export default function FavoritesDrawer({
 
   return (
     <>
-      {/* الخلفية المعتمة: كليك عليها يقفل */}
+      {/**/}
       <div
         onClick={onClose}
         aria-hidden="true"

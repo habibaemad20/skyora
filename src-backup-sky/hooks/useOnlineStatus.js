@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-// بيقول لنا لو المتصفح متصل بالنت ولا لأ، وبيتحدث لحظيًا
 export function useOnlineStatus() {
   const [online, setOnline] = useState(() => navigator.onLine);
 

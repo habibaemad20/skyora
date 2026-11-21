@@ -12,7 +12,6 @@ import OfflineBanner from "../components/states/OfflineBanner";
 import { cityKey } from "../utils/cities";
 
 export default function DashboardPage() {
-  // البيانات اللي بعتها الـ Layout في <Outlet context={...} />
   const {
     city, weather, loading, error, savedAt, retry, online,
     units, recent, selectCity, isFavorite, toggleFavorite,

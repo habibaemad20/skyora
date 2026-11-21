@@ -8,6 +8,5 @@ export async function searchCities(name, signal) {
   if (!res.ok) throw new Error("City search failed. Please try again.");
 
   const data = await res.json();
-  // لو مفيش نتائج الـ API مش بيرجّع results خالص، فنرجّع array فاضي
   return data.results ?? [];
 }

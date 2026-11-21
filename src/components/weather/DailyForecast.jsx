@@ -11,8 +11,6 @@ const formatDay = (iso, i) =>
 
 export default function DailyForecast({ weather, units }) {
   const { daily } = weather;
-
-  // أقل وأعلى درجة في الأسبوع كله (عشان نحسب مكان الشريط)
   const weekMin = Math.min(...daily.temperature_2m_min);
   const weekMax = Math.max(...daily.temperature_2m_max);
   const span = weekMax - weekMin;
@@ -54,7 +52,7 @@ export default function DailyForecast({ weather, units }) {
                 {formatTemp(min, units)}°
               </span>
 
-              {/* شريط المدى: left و width ديناميكيين فبنستخدم style */}
+              {/*  */}
               <div className="relative h-2 flex-1 rounded-full bg-slate-200 dark:bg-white/10">
                 <div
                   className="absolute h-full rounded-full bg-linear-to-r from-brand to-brand-2"

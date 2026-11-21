@@ -58,7 +58,6 @@ export default function App() {
 
   const location = useGeolocation(selectCity);
 
-  // نحدّث الدرجة المعروضة على زرار المدينة في Recent
   useEffect(() => {
     if (!weather || !city) return;
     const temp = weather.current.temperature_2m;
@@ -67,7 +66,6 @@ export default function App() {
     );
   }, [weather, city, setRecent]);
 
-  // عنوان التاب: "28°C Cairo · SKYORA"
   useEffect(() => {
     document.title =
       weather && city
@@ -75,7 +73,6 @@ export default function App() {
         : "SKYORA · Know the sky before you step out";
   }, [weather, city, units]);
 
-  // الخلفية حسب الطقس (لو لسه مفيش طقس: خلفية الشمس)
    const mood = weather ? getMood(weather.current.weather_code, weather.current.is_day) : "sunny";
   useEffect(() => {
     document.documentElement.dataset.mood = mood;
@@ -83,7 +80,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen font-sans text-slate-800 dark:text-slate-100">
-      {/* طبقة الخلفية: ثابتة ورا كل حاجة */}
+      {/* */}
       <div
         aria-hidden="true"
         className={`fixed inset-0 -z-10 bg-linear-to-br transition-colors duration-1000 ${background}`}

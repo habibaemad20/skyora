@@ -6,7 +6,7 @@ export async function reverseGeocode({ latitude, longitude }) {
     admin1: "",
     latitude,
     longitude,
-    timezone: "auto", // Open-Meteo يحدد التوقيت من الإحداثيات
+    timezone: "auto", 
   };
 
   try {

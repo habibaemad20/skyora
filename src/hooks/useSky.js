@@ -4,14 +4,13 @@ import { sceneFromKind, sceneHour } from "../utils/sky";
 import { useSmoothHour } from "./useSmoothHour";
 
 export function useSky(weather) {
-  // البداية: سماء صافية على ساعة جهازك، لحد ما الطقس الحقيقي يوصل
   const [target, setTarget] = useState(() => {
     const d = new Date();
     return { scene: "clear", hour: d.getHours() + d.getMinutes() / 60 };
   });
 
   useEffect(() => {
-    if (!weather) return; // أثناء التحميل: نسيب آخر سماء زي ما هي
+    if (!weather) return;
     const { kind } = getWeather(weather.current.weather_code, weather.current.is_day);
     setTarget({
       scene: sceneFromKind(kind),

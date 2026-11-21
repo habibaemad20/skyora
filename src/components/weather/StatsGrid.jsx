@@ -6,8 +6,6 @@ import {
   formatTemp, formatWind, windUnit, degToCompass,
   humidityLabel, windLabel, uvLabel, rainLabel,
 } from "../../utils/formatters";
-
-// رقم كبير + وحدة صغيرة. animate=false للأرقام اللي فيها كسور (زي الرياح بـ m/s)
 function Big({ value, unit, animate = true }) {
   return (
     <p className="font-display text-4xl font-bold sm:text-5xl">
@@ -16,8 +14,6 @@ function Big({ value, unit, animate = true }) {
     </p>
   );
 }
-
-// العرض ديناميكي فبنستخدم style هنا بس
 function Bar({ percent }) {
   return (
     <div className="h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">

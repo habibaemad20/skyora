@@ -5,8 +5,6 @@ import { getWeather } from "../../utils/weatherCodes";
 import { formatTemp, tempUnit } from "../../utils/formatters";
 
 const hourLabel = (h) => `${h % 12 || 12} ${h >= 12 ? "PM" : "AM"}`;
-
-// التولتيب (الصندوق اللي بيظهر لما تقف على الرسم)
 function ChartTip({ active, payload, unit }) {
   if (!active || !payload?.length) return null;
   return (
@@ -18,7 +16,6 @@ function ChartTip({ active, payload, unit }) {
 }
 const toMin = (iso) => Number(iso.slice(11, 13)) * 60 + Number(iso.slice(14, 16));
 
-// الساعة دي نهار ولا ليل؟ من وقت الشروق والغروب الفعلي لليوم ده
 function isDaytime(iso, daily) {
   const d = daily.time.indexOf(iso.slice(0, 10));
   if (d === -1) return true;
@@ -27,9 +24,7 @@ function isDaytime(iso, daily) {
 }
 export default function HourlyForecast({ weather, units }) {
   const { current, hourly } = weather;
-  const [mode, setMode] = useState("temp"); // "temp" | "rain"
-
-  // نبدأ من الساعة الحالية ونجيب 24 ساعة
+  const [mode, setMode] = useState("temp"); 
   const start = Math.max(
     0,
     hourly.time.findIndex((t) => t.slice(0, 13) === current.time.slice(0, 13))
@@ -42,7 +37,7 @@ export default function HourlyForecast({ weather, units }) {
       temp: formatTemp(hourly.temperature_2m[start + i], units),
       rain: hourly.precipitation_probability[start + i],
       code: hourly.weather_code[start + i],
-           isDay: isDaytime(t, weather.daily), // تقريب بسيط لليل/نهار
+           isDay: isDaytime(t, weather.daily),
     };
   });
 
@@ -78,7 +73,7 @@ export default function HourlyForecast({ weather, units }) {
         </div>
       </div>
 
-      {/* الرسم البياني: اللون بياخده من text-* عن طريق currentColor */}
+      {/* */}
       <div className="mt-4 h-52 w-full text-accent">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={hours} margin={{ top: 10, right: 12, left: 12, bottom: 0 }}>

@@ -2,17 +2,14 @@ import { Sunrise, Sunset } from "lucide-react";
 import GlassCard from "../ui/GlassCard";
 import { formatTime } from "../../utils/formatters";
 
-// "2026-11-15T16:50" → عدد الدقايق من أول اليوم
 const toMin = (iso) => Number(iso.slice(11, 13)) * 60 + Number(iso.slice(14, 16));
 const formatDuration = (m) => `${Math.floor(m / 60)}h ${String(m % 60).padStart(2, "0")}m`;
 
-// القوس منحنى Bezier: بداية، نقطة تحكم، نهاية
 const P0 = [20, 120];
 const P1 = [150, -40];
 const P2 = [280, 120];
 const ARC = `M${P0[0]} ${P0[1]} Q${P1[0]} ${P1[1]} ${P2[0]} ${P2[1]}`;
 
-// مكان الشمس على المنحنى لما t بين 0 و 1
 const pointAt = (t) => [
   (1 - t) ** 2 * P0[0] + 2 * (1 - t) * t * P1[0] + t ** 2 * P2[0],
   (1 - t) ** 2 * P0[1] + 2 * (1 - t) * t * P1[1] + t ** 2 * P2[1],
@@ -58,9 +55,9 @@ export default function SunArc({ weather }) {
           x1="20" y1="120" x2="280" y2="120" strokeDasharray="4 4"
           className="stroke-slate-300 dark:stroke-white/15"
         />
-        {/* القوس الكامل */}
+        {/* */}
         <path d={ARC} fill="none" strokeWidth="3" strokeLinecap="round" className="stroke-slate-200 dark:stroke-white/10" />
-        {/* الجزء اللي الشمس قطعته (pathLength=1 بيخلينا نتعامل معاه كنسبة) */}
+        {/*  */}
         <path
           d={ARC} fill="none" strokeWidth="3" strokeLinecap="round"
           pathLength="1" strokeDasharray={`${t} 1`}

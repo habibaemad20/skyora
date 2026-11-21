@@ -1,7 +1,5 @@
 import { Clock } from "lucide-react";
 import { WEATHERS, timeLabel } from "../../utils/sky";
-
-// الساعة دلوقتي، مقرّبة لأقرب نص ساعة
 const nowHour = () => {
   const d = new Date();
   return Math.round((d.getHours() + d.getMinutes() / 60) * 2) / 2;

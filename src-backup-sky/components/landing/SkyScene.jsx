@@ -8,7 +8,6 @@ const WEATHERS = {
   storm: { label: "Thunderstorm", short: "Storm", Icon: CloudLightning, base: 19 },
 };
 
-// ===== ألوان السماء على مدار اليوم: [أعلى, وسط, أسفل] عند كل ساعة =====
 const STOPS = [0, 5, 7, 12, 17, 19, 21, 24];
 const SKY = [
   ["#0a0f2c", "#111a45", "#1b2560"], // 0  منتصف الليل
@@ -23,14 +22,12 @@ const SKY = [
 
 const toRgb = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
 
-// بيمزج لونين: t=0 اللون الأول، t=1 اللون التاني
 function mix(a, b, t) {
   const A = toRgb(a);
   const B = toRgb(b);
   return `rgb(${A.map((v, i) => Math.round(v + (B[i] - v) * t)).join(",")})`;
 }
 
-// ألوان السماء عند ساعة معينة (بنمزج بين أقرب مرحلتين)
 function skyAt(h) {
   let i = STOPS.findIndex((s, idx) => h >= s && h <= STOPS[idx + 1]);
   if (i < 0) i = STOPS.length - 2;
@@ -51,7 +48,6 @@ function timeLabel(h) {
   return `${hh % 12 || 12}:${mm} ${hh >= 12 ? "PM" : "AM"}`;
 }
 
-// ===== عناصر المشهد (مواقعها ثابتة، بنحسبها بمعادلات بدل Math.random) =====
 const CLOUDS = [
   { top: "12%", scale: "1", dur: 70, delay: -20, x: "15%", inClear: "opacity-90" },
   { top: "26%", scale: "1.4", dur: 95, delay: -60, x: "55%", inClear: "opacity-0" },
@@ -76,7 +72,6 @@ const STARS = Array.from({ length: 28 }, (_, i) => ({
   delay: -((i * 13) % 30) / 10,
 }));
 
-// الكلاسات لازم تفضل مكتوبة كاملة هنا عشان Tailwind يشوفها
 const CLOUD_COLOR = { clear: "bg-white", snow: "bg-slate-100", rain: "bg-slate-400", storm: "bg-slate-600" };
 const HAZE = { clear: "opacity-0", snow: "opacity-20", rain: "opacity-45", storm: "opacity-60" };
 const SUN_OPACITY = { clear: 1, snow: 0.55, rain: 0.2, storm: 0 };
@@ -88,10 +83,8 @@ export default function SkyScene() {
   const current = WEATHERS[weather];
   const [top, mid, bottom] = skyAt(hour);
 
-  // درجة توضيحية: بتتغير مع الطقس ومع الوقت (أعلى حاجة الساعة 3 العصر)
   const temp = Math.round(current.base + 5 * Math.cos(((hour - 15) / 24) * 2 * Math.PI));
 
-  // الشمس أو القمر بيتحركوا على قوس
   const isSun = hour >= 6 && hour <= 18;
   const p = isSun ? (hour - 6) / 12 : ((hour < 6 ? hour + 24 : hour) - 18) / 12;
   const x = 8 + 84 * p;
@@ -104,7 +97,7 @@ export default function SkyScene() {
       className="relative isolate flex min-h-[34rem] flex-col justify-end overflow-hidden rounded-[2rem] shadow-2xl shadow-slate-900/20"
       style={{ background: `linear-gradient(180deg, ${top}, ${mid} 55%, ${bottom})` }}
     >
-      {/* النجوم (بتظهر بالليل بس) */}
+      {/**/}
       <div aria-hidden="true" className="absolute inset-0 transition-opacity duration-700"
         style={{ opacity: starOpacity(hour) * (weather === "clear" ? 1 : 0.2) }}>
         {STARS.map((s, i) => (
@@ -137,10 +130,10 @@ export default function SkyScene() {
         ))}
       </div>
 
-      {/* طبقة تغميق حسب الطقس */}
+      {/* ط حسب الطقس */}
       <div aria-hidden="true" className={`absolute inset-0 bg-slate-800 transition-opacity duration-700 ${HAZE[weather]}`} />
 
-      {/* مطر / عاصفة */}
+      {/* مطرة */}
       {(weather === "rain" || weather === "storm") && (
         <div aria-hidden="true" className="fade-in absolute inset-0">
           {DROPS.map((d, i) => (
@@ -161,10 +154,10 @@ export default function SkyScene() {
         </div>
       )}
 
-      {/* تغميق من تحت عشان النص يتقرا في أي وقت من اليوم */}
+      {/* */}
       <div aria-hidden="true" className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
 
-      {/* المحتوى */}
+      {/**/}
       <div className="relative z-10 p-5 sm:p-8">
         <p className="flex items-center gap-2 text-sm font-semibold text-white">
           <current.Icon size={18} aria-hidden="true" /> {current.label}

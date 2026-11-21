@@ -5,7 +5,6 @@ import {
   humidityLabel, windLabel, uvLabel, rainLabel,
 } from "../../utils/formatters";
 
-// رقم كبير + وحدة صغيرة
 function Big({ value, unit }) {
   return (
     <p className="font-display text-4xl font-bold sm:text-5xl">
@@ -15,7 +14,6 @@ function Big({ value, unit }) {
   );
 }
 
-// شريط تقدم (العرض ديناميكي فبنستخدم style هنا بس)
 function Bar({ percent }) {
   return (
     <div className="h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10">

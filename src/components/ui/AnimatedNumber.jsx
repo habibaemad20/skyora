@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-
-// بيعدّ من القيمة القديمة للجديدة (وأول مرة من صفر)
 export default function AnimatedNumber({ value, duration = 800 }) {
   const [shown, setShown] = useState(0);
   const last = useRef(0);
@@ -13,7 +11,7 @@ export default function AnimatedNumber({ value, duration = 800 }) {
 
     const tick = (now) => {
       const t = reduce ? 1 : Math.min(1, (now - start) / duration);
-      const eased = 1 - (1 - t) ** 3; // سريع في الأول وبيهدى في الآخر
+      const eased = 1 - (1 - t) ** 3; 
       const v = begin + (value - begin) * eased;
       last.current = v;
       setShown(v);

@@ -70,7 +70,6 @@ export function starOpacity(hour) {
   return 0;
 }
 
-// السماء غامقة ولا فاتحة؟ (الـ Landing بتخلي الصفحة كلها تتبعها)
 export function isSkyDark(hour, weather) {
   const [r, g, b] = skyAt(hour)[1];
   const brightness = 0.2126 * r + 0.7152 * g + 0.0722 * b;

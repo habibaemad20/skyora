@@ -30,7 +30,7 @@ export default function HeroCard({ city, weather, units, isFavorite, onToggleFav
         p-6 text-slate-900 shadow-2xl shadow-slate-900/10 backdrop-blur-2xl transition-colors duration-500
         dark:border-white/10 dark:bg-slate-700/40 dark:text-white sm:p-8"
     >
-      {/* لمعة ألوان خفيفة بلون الهوية (ديكور) */}
+      {}
       <div aria-hidden="true" className="pointer-events-none absolute -end-20 -top-20 h-72 w-72 rounded-full bg-brand/25 blur-3xl" />
       <div aria-hidden="true" className="pointer-events-none absolute -bottom-24 -start-16 h-64 w-64 rounded-full bg-brand-2/20 blur-3xl" />
 

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { searchCities } from "../api/geocoding";
 import { useDebounce } from "../utils/useDebounce";
 
-// الحالات: idle | loading | results | empty | error
 export function useCitySearch(query) {
   const text = query.trim();
   const debounced = useDebounce(text, 400);
@@ -10,7 +9,6 @@ export function useCitySearch(query) {
   const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
-    // أقل من حرفين: مفيش بحث
     if (debounced.length < 2) {
       setState({ status: "idle", results: [] });
       return;
@@ -29,8 +27,6 @@ export function useCitySearch(query) {
 
     return () => controller.abort();
   }, [debounced, attempt]);
-
-  // لسه بيكتب (الـ debounce ما خلصش): نعرض loading بدل نتايج قديمة
   const typing = text.length >= 2 && text !== debounced;
   const status = text.length < 2 ? "idle" : typing ? "loading" : state.status;
 

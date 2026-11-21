@@ -1,14 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-
-// بيرجّع ساعة بتتحرك بنعومة لحد القيمة الجديدة (دايمًا للأمام، لأن الوقت بيمشي لقدام)
 export function useSmoothHour(target, duration = 1800) {
   const [hour, setHour] = useState(target);
   const current = useRef(target);
 
   useEffect(() => {
     const from = current.current;
-    const delta = (((target - from) % 24) + 24) % 24; // المسافة للأمام بس
-    if (delta < 0.01) return;
+    const delta = (((target - from) % 24) + 24) % 24; 
 
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const start = performance.now();
@@ -16,7 +13,7 @@ export function useSmoothHour(target, duration = 1800) {
 
     const tick = (now) => {
       const t = reduce ? 1 : Math.min(1, (now - start) / duration);
-      const eased = t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2; // بطيء في الأول والآخر
+      const eased = t < 0.5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2;
       const value = (from + delta * eased) % 24;
       current.current = value;
       setHour(value);
@@ -24,7 +21,7 @@ export function useSmoothHour(target, duration = 1800) {
     };
     raf = requestAnimationFrame(tick);
 
-    return () => cancelAnimationFrame(raf); // لو الهدف اتغير في النص، نوقف القديم
+    return () => cancelAnimationFrame(raf);
   }, [target, duration]);
 
   return hour;

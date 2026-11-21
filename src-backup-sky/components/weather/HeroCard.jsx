@@ -26,7 +26,7 @@ export default function HeroCard({ city, weather, units, isFavorite, onToggleFav
       className="relative flex h-full flex-col overflow-hidden rounded-3xl bg-linear-to-br
         from-brand to-brand-2 p-6 text-white shadow-2xl shadow-brand/40 sm:p-8"
     >
-      {/* بقع ضوء زخرفية */}
+      {/* */}
       <div aria-hidden="true" className="pointer-events-none absolute -end-16 -top-16 h-64 w-64 rounded-full bg-white/25 blur-3xl" />
       <div aria-hidden="true" className="pointer-events-none absolute -bottom-20 -start-10 h-56 w-56 rounded-full bg-black/20 blur-3xl" />
 

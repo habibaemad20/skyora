@@ -1,4 +1,3 @@
-// إحداثيات ← اسم مدينة. لو الخدمة فشلت بنرجّع "My location" عشان التطبيق يكمل
 export async function reverseGeocode({ latitude, longitude }) {
   const fallback = {
     name: "My location",
@@ -6,7 +5,7 @@ export async function reverseGeocode({ latitude, longitude }) {
     admin1: "",
     latitude,
     longitude,
-    timezone: "auto", // Open-Meteo يحدد التوقيت من الإحداثيات
+    timezone: "auto", 
   };
 
   try {

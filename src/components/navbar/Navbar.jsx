@@ -7,7 +7,6 @@ import FavoritesButton from "./FavoritesButton";
 import ThemeToggle from "./ThemeToggle";
 import UnitToggle from "./UnitToggle";
 
-// بكرة هنضيف هنا Settings بسطر واحد
 const NAV_LINKS = [
   { to: "/app", label: "Forecast", end: true },
   { to: "/app/settings", label: "Settings" },
@@ -43,7 +42,7 @@ export default function Navbar({
         <ul className="hidden rounded-full bg-white/50 p-1 ring-1 ring-slate-900/5 lg:flex dark:bg-white/5 dark:ring-white/10">
           {NAV_LINKS.map((l) => (
             <li key={l.to}>
-              {/* NavLink بيدّينا isActive: الصفحة الحالية هي اللي ملونة */}
+              {}
               <NavLink
                 to={l.to}
                 end={l.end}

@@ -28,11 +28,10 @@ export default function LiveDemo() {
   const { data: weather, loading, error, retry } = useWeather(city);
 
   const info = weather ? getWeather(weather.current.weather_code, weather.current.is_day) : null;
-  // شخصية الألوان بتتطبق على الكارت بس (مش على الصفحة)
   const mood = weather ? getMood(weather.current.weather_code, weather.current.is_day) : "cloudy";
 
   const openApp = () => {
-    pushRecent(city); // نحفظ المدينة الأول، وبعدين نفتح التطبيق عليها
+    pushRecent(city);
     navigate("/app");
   };
 

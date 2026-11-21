@@ -12,7 +12,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
 
-        {/* /app بيلف كل صفحاته بالـ Layout (Navbar + Footer + Drawer) */}
+        {/*  */}
         <Route path="/app" element={<AppLayout />}>
           <Route index element={<DashboardPage />} />
         </Route>

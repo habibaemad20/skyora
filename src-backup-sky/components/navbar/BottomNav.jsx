@@ -4,7 +4,6 @@ import { CloudSun, LocateFixed, Loader2, Star } from "lucide-react";
 const base = "flex flex-1 cursor-pointer flex-col items-center gap-1 py-2 text-xs font-semibold transition duration-300";
 const idle = "text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white";
 
-// شريط تنقل سفلي للموبايل بس (md:hidden)
 export default function BottomNav({ locating, savedCount, onLocate, onSaved }) {
   return (
     <nav
