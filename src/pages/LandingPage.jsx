@@ -125,7 +125,7 @@ export default function LandingPage() {
         <div className={`${glass} flex flex-wrap items-center justify-between gap-2 px-6 py-4 text-sm text-slate-800 dark:text-slate-300`}>
           <p>
             <span className="font-bold">SKYORA</span> ·maded by{" "}
-            <a href="https://open-meteo.com/" target="_blank" rel="noreferrer" className="underline">Habiba Emad</a>
+            <a href="linkedin.com/in/habiba-emad-0a6505357" target="_blank" rel="noreferrer" className="underline">Habiba Emad</a>
           </p>
           <p className="italic">Know the sky before you step out.</p>
         </div>
