@@ -1,0 +1,84 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", sans-serif;
+}
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", sans-serif;
+  --animate-float: float 4s ease-in-out infinite;
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* ===== ألوان التطبيق (Design Tokens) ===== */
+@theme inline {
+  --color-brand: var(--brand);
+  --color-brand-2: var(--brand-2);
+  --color-accent: var(--accent);
+}
+
+/* بنقول للمتصفح إن دي "ألوان"، فيقدر يمزجها وهي بتتغير (ده سر الأنيميشن) */
+@property --brand   { syntax: "<color>"; inherits: true; initial-value: #ea580c; }
+@property --brand-2 { syntax: "<color>"; inherits: true; initial-value: #db2777; }
+@property --sky-1   { syntax: "<color>"; inherits: true; initial-value: #4facfe; }
+@property --sky-2   { syntax: "<color>"; inherits: true; initial-value: #ffd89b; }
+@property --sky-3   { syntax: "<color>"; inherits: true; initial-value: #ff9a8b; }
+
+/* أي تغيير في الألوان دي ياخد 0.9 ثانية */
+html {
+  transition:
+    --brand 0.9s ease, --brand-2 0.9s ease,
+    --sky-1 0.9s ease, --sky-2 0.9s ease, --sky-3 0.9s ease;
+}
+
+:root {
+  --brand: #ea580c;
+  --brand-2: #db2777;
+  --sky-1: #4facfe;
+  --sky-2: #ffd89b;
+  --sky-3: #ff9a8b;
+  --accent: var(--brand);
+}
+
+[data-mood="night"]  { --brand: #7c3aed; --brand-2: #0e7490; --sky-1: #6366f1; --sky-2: #a78bfa; --sky-3: #f0abfc; }
+[data-mood="cloudy"] { --brand: #2563eb; --brand-2: #0d9488; --sky-1: #60a5fa; --sky-2: #a5b4fc; --sky-3: #5eead4; }
+[data-mood="rainy"]  { --brand: #0284c7; --brand-2: #4f46e5; --sky-1: #0ea5e9; --sky-2: #6366f1; --sky-3: #22d3ee; }
+[data-mood="stormy"] { --brand: #9333ea; --brand-2: #e11d48; --sky-1: #7c3aed; --sky-2: #ec4899; --sky-3: #fb923c; }
+[data-mood="snowy"]  { --brand: #0891b2; --brand-2: #2563eb; --sky-1: #22d3ee; --sky-2: #93c5fd; --sky-3: #e0f2fe; }
+
+/* في الدارك اللون الأساسي بيتفتح شوية عشان يبان */
+.dark { --accent: color-mix(in oklab, var(--brand) 55%, white); }
+
+/* طبقة اللايت */
+.sky-bg {
+  background: linear-gradient(160deg, var(--sky-1), var(--sky-2) 55%, var(--sky-3));
+}
+
+/* طبقة الدارك فوقها: بتظهر بالـ opacity فيحصل crossfade ناعم */
+.sky-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  background:
+    radial-gradient(60rem 36rem at 0% -10%, color-mix(in oklab, var(--brand) 70%, transparent), transparent 65%),
+    radial-gradient(50rem 30rem at 100% 10%, color-mix(in oklab, var(--brand-2) 50%, transparent), transparent 65%),
+    radial-gradient(40rem 30rem at 50% 110%, color-mix(in oklab, var(--brand) 30%, transparent), transparent 70%),
+    #080d1f;
+}
+.dark .sky-bg::after { opacity: 1; }
