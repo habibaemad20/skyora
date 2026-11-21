@@ -12,15 +12,15 @@ const KINDS = {
     night: { Icon: Moon, color: "text-amber-500 dark:text-yellow-300" },
   },
   partly: {
-    day: { Icon: CloudSun, color: "text-sky-600 dark:text-sky-300" },
-    night: { Icon: CloudMoon, color: "text-indigo-500 dark:text-indigo-300" },
+    day: { Icon: CloudSun, color: "text-slate-600 dark:text-slate-300" },
+    night: { Icon: CloudMoon, color: "text-slate-600 dark:text-slate-300" },
   },
   cloud: same(Cloud, "text-slate-500 dark:text-slate-300"),
   fog: same(CloudFog, "text-slate-500 dark:text-slate-300"),
-  drizzle: same(CloudDrizzle, "text-sky-500"),
-  rain: same(CloudRain, "text-sky-600 dark:text-sky-400"),
-  snow: same(CloudSnow, "text-cyan-400"),
-  storm: same(CloudLightning, "text-violet-500 dark:text-violet-400"),
+  drizzle: same(CloudDrizzle, "text-slate-500 dark:text-slate-300"),
+  rain: same(CloudRain, "text-slate-600 dark:text-slate-300"),
+  snow: same(CloudSnow, "text-slate-500 dark:text-slate-200"),
+  storm: same(CloudLightning, "text-slate-700 dark:text-slate-200"),
 };
 
 // WMO code → اسم + نوع

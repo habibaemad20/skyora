@@ -26,7 +26,7 @@ function Bar({ percent }) {
   );
 }
 
-const UV_COLORS = ["bg-sky-500", "bg-indigo-500", "bg-amber-500", "bg-rose-500"];
+const UV_COLORS = ["bg-slate-400", "bg-slate-500", "bg-amber-500", "bg-rose-500"];
 
 export default function StatsGrid({ weather, units }) {
   const { settings } = useSettings();

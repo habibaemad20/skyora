@@ -66,7 +66,7 @@ export default function SunArc({ weather }) {
         <path
           d={ARC} fill="none" strokeWidth="3" strokeLinecap="round"
           pathLength="1" strokeDasharray={`${t} 1`}
-          className="stroke-brand"
+          className="stroke-accent"
         />
         {isUp && (
           <>
