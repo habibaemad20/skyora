@@ -33,7 +33,7 @@ export default function StatsGrid({ weather, units }) {
   const wu = settings.windUnit;
 
   return (
-    <div className="grid h-full auto-rows-fr grid-cols-2 gap-4 lg:gap-6">
+    <div className="stagger grid h-full auto-rows-fr grid-cols-2 gap-4 lg:gap-6">
       <StatCard icon={Droplets} label="Humidity" badge={humidityLabel(current.relative_humidity_2m)}>
         <div>
           <Big value={current.relative_humidity_2m} unit="%" />

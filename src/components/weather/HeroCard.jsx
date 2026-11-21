@@ -26,7 +26,7 @@ export default function HeroCard({ city, weather, units, isFavorite, onToggleFav
   return (
     <section
       aria-label="Current weather"
-      className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/60 bg-white/50
+      className="card-fx relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/60 bg-white/50
         p-6 text-slate-900 shadow-2xl shadow-slate-900/10 backdrop-blur-2xl transition-colors duration-500
         dark:border-white/10 dark:bg-slate-700/40 dark:text-white sm:p-8"
     >
